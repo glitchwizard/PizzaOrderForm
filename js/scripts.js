@@ -1,4 +1,5 @@
 // Business Logic
+
 function Pizza(toppings, size){
     this.toppings = toppings;
     this.size = size;
@@ -58,10 +59,9 @@ $(document).ready(function(event){
         } else if (pizzasOrdered.length >= 2 ) {
             $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizzas")            
         };
-        for (let i = 0; i < pizzasOrdered.length; i++) {
+
+        for (let i = pizzasOrdered.length-1; i < pizzasOrdered.length; i++) {
             pizzasOrdered[i].pizzaPrice();
-            console.log("Executing pizza price for pizza #" + (i+1));
-            
         }
     });
 });
