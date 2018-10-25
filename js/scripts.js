@@ -62,6 +62,12 @@ $(document).ready(function(event){
 
         for (let i = pizzasOrdered.length-1; i < pizzasOrdered.length; i++) {
             pizzasOrdered[i].pizzaPrice();
+            $("span#pizzaInfo").append("<br>Pizza Number " + (i + 1) + " has the following: " + 
+            "<br> <ul>" +
+                "<li>Toppings: " + pizzasOrdered[i].toppings.join(', ') + "</li>" +
+                "<li>Size: " + pizzasOrdered[i].size + "</li>" +
+                "<li>Price: $" + pizzasOrdered[i].price.toFixed(2) + "</li>" +
+            "</ul>") 
         }
     });
 });
