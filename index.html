@@ -9,6 +9,33 @@
     <title>Pizza! Let's order it!</title>
   </head>
   <body>
-    
+    <div class="container">
+      <div class="jumbotron">
+        <h2>Pizza Order Form</h2>
+      </div>
+
+      <form id="pizza">
+        <div class="form-group">
+          <p>Select your toppings:</p>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Pepperoni"> Pepperoni<br>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Olives"> Olives<br>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Extra cheese"> Extra Cheese<br>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Pineapple"> Pineapple<br>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Sausage"> Sausage<br>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Bell peppers"> Bell Peppers<br>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Onions"> Onions<br>
+          <input type="checkbox" class="Toppings" name="Toppings" value="Canadian bacon"> Canadian Bacon<br>
+        </div>
+        <p></p>
+        <div class="form-group">
+          <p>Select pizza size:</p>
+          <input type="radio" name="pizzaSize" value="S"> 12" Small Pizza<br>
+          <input type="radio" name="pizzaSize" value="M"> 16" Medium Pizza<br>
+          <input type="radio" name="pizzaSize" value="L"> 20" Large Pizza<br>
+          <input type="radio" name="pizzaSize" value="XL"> 24" Extra Large Pizza<br>
+        </div>
+        <button type="submit" id="pizzaSubmit">Submit Pizza Order</button>
+      </form>
+
   </body>
 </html>
