@@ -58,6 +58,10 @@ $(document).ready(function(event){
         } else if (pizzasOrdered.length >= 2 ) {
             $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizzas")            
         };
-
+        for (let i = 0; i < pizzasOrdered.length; i++) {
+            pizzasOrdered[i].pizzaPrice();
+            console.log("Executing pizza price for pizza #" + (i+1));
+            
+        }
     });
 });
