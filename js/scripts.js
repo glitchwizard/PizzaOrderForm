@@ -2,7 +2,40 @@
 function Pizza(toppings, size){
     this.toppings = toppings;
     this.size = size;
+    this.price = 0.00;
 }
+
+Pizza.prototype.pizzaPrice = function(){
+    console.log("This is the this.toppings.length: " + this.toppings.length);
+    if (this.toppings.length > 3) {
+        this.price += (this.toppings.length - 3) * 0.50;
+        console.log("This is the price so far after toppings: " + this.price)
+    } else {
+        this.price = 0.00
+    }
+    switch (this.size) {
+        case "S":
+            this.price += 10.00;
+            console.log("Small Pizza Price added");
+            break;
+        case "M":
+            this.price += 14.00;
+            console.log("Medium Pizza Price added");
+            break;
+        case "L":
+            this.price += 19.00;
+            console.log("Large Pizza Price added");
+            break;
+        case "XL":
+            this.price += 23.00;
+            console.log("X-Large Pizza Price added");
+            break;
+        default:
+            break;
+    }
+    console.log("this is the price after toppings and size: " + this.price)
+    return this.price;
+    };
 
 var pizzasOrdered = [];
 
@@ -11,24 +44,20 @@ $(document).ready(function(event){
     $("#pizzaSubmit").on("click", function(event){
         var pizza = new Pizza();
         event.preventDefault();
-
-        console.log("The Submit function is working");
-
         var toppingsSelected = [];
-
         $(":checkbox").each(function() {
             if($(this).is(":checked")) {
                 toppingsSelected.push($(this).attr('value'));
-                console.log("here's the value being added: " + $(this).attr('value'));
             }
-
-            console.log("This is toppingsSelected: " + toppingsSelected);
         });
         pizza.toppings = toppingsSelected;
-        console.log("This is pizza.toppings: " + pizza.toppings)
-        pizzasOrdered.push(pizza);
-        console.log("This is pizzasOrdered: " + pizzasOrdered);
-        
-    });
+        pizza.size = $("input.pizzaSize:checked").val();
+        pizzasOrdered.push(pizza); 
+        if (pizzasOrdered.length < 2) {
+            $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizza")
+        } else if (pizzasOrdered.length >= 2 ) {
+            $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizzas")            
+        };
 
+    });
 });

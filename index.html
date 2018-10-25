@@ -29,13 +29,19 @@
         <p></p>
         <div class="form-group">
           <p>Select pizza size:</p>
-          <input type="radio" name="pizzaSize" value="S"> 12" Small Pizza<br>
-          <input type="radio" name="pizzaSize" value="M"> 16" Medium Pizza<br>
-          <input type="radio" name="pizzaSize" value="L"> 20" Large Pizza<br>
-          <input type="radio" name="pizzaSize" value="XL"> 24" Extra Large Pizza<br>
+          <input type="radio" class="pizzaSize" name="pizzaSize" value="S"> 12" Small Pizza<br>
+          <input type="radio" class="pizzaSize" name="pizzaSize" value="M"> 16" Medium Pizza<br>
+          <input type="radio" class="pizzaSize" name="pizzaSize" value="L"> 20" Large Pizza<br>
+          <input type="radio" class="pizzaSize" name="pizzaSize" value="XL"> 24" Extra Large Pizza<br>
         </div>
-        <button type="submit" id="pizzaSubmit">Submit Pizza Order</button>
+        <button type="submit" id="pizzaSubmit">Add Pizza to Order</button>
       </form>
+      <div class="row">
+        <div class="undefined">
+          <p></p>
+          <span id="pizzasOrdered"></span>
+        </div>
+      </div>
 
   </body>
 </html>
