@@ -6,6 +6,14 @@ function Pizza(toppings, size){
     this.price = 0.00;
 }
 
+var totalPrice = 0;
+
+var priceSum = function() {
+    for (var i = pizzasOrdered.length-1; i < pizzasOrdered.length; i++) {
+        totalPrice += pizzasOrdered[i].price;
+    }
+}
+
 Pizza.prototype.pizzaPrice = function(){
     console.log("This is the this.toppings.length: " + this.toppings.length);
     if (this.toppings.length > 3) {
@@ -54,20 +62,26 @@ $(document).ready(function(event){
         pizza.toppings = toppingsSelected;
         pizza.size = $("input.pizzaSize:checked").val();
         pizzasOrdered.push(pizza); 
-        if (pizzasOrdered.length < 2) {
-            $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizza")
-        } else if (pizzasOrdered.length >= 2 ) {
-            $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizzas")            
-        };
+
+
 
         for (let i = pizzasOrdered.length-1; i < pizzasOrdered.length; i++) {
             pizzasOrdered[i].pizzaPrice();
-            $("span#pizzaInfo").append("<br>Pizza Number " + (i + 1) + " has the following: " + 
-            "<br> <ul>" +
+            $("span#pizzaInfo").append("Pizza Number " + (i + 1) + " has the following: " + 
+            "<ul>" +
                 "<li>Toppings: " + pizzasOrdered[i].toppings.join(', ') + "</li>" +
                 "<li>Size: " + pizzasOrdered[i].size + "</li>" +
                 "<li>Price: $" + pizzasOrdered[i].price.toFixed(2) + "</li>" +
             "</ul>") 
+        
+        priceSum();
+
+        if (pizzasOrdered.length < 2) {
+            $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizza, and the total price is $" + totalPrice.toFixed(2))
+        } else if (pizzasOrdered.length >= 2 ) {
+            $("span#pizzasOrdered").text("You have ordered " + pizzasOrdered.length + " pizzas, and the total price is $" + totalPrice.toFixed(2))            
+        };
+
         }
     });
 });
